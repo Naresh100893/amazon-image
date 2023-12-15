@@ -1,2 +1,2 @@
-FROM: amazonlinux:altest
-PORT: 8090
+FROM: amazonlinux:latest
+EXPOSE: 8090
