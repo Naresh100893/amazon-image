@@ -35,5 +35,12 @@ pipeline {
                 // Add deployment steps here
             }
         }
+
+        stage("docker-images-cleanup") {
+	steps {
+		sh "sudo docker image prune -af"
+	}
+}
+
     }
 }
