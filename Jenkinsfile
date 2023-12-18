@@ -23,12 +23,13 @@ pipeline {
         }
 
         stage('Deploy') {
-            when {
-                expression {
-                    // Define your condition here
-                    return env.BRANCH_NAME == "origin/main"
-                }
-            }
+            input
+
+{
+
+message "Do you want to proceed for deployment ?"
+
+}
             steps {
                 echo 'Deploying...'
                 // Add deployment steps here
