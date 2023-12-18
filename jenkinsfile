@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('copy') {
+            steps {
+                git url: "https://github.com/Naresh100893/amazon-image.git", branch: "main"
+                echo 'copying...'
+            }
+        }
+        
+        
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                expression {
+                    // Define your condition here
+                    return env.BRANCH_NAME == 'origin/main'
+                }
+            }
+            steps {
+                echo 'Deploying...'
+                // Add deployment steps here
+            }
+        }
+    }
+}
