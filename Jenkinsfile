@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 // Add deployment steps here
-		    input {
+		 input {
 			    message "Do you want to proceed for deployment ?"
 		    }
 		    sh 'docker run -itd naresh7724/amazon-image-new:latest'
