@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'docker build . -t amazonImageNew:latest '
+                sh 'docker build . -t Naresh100893/amazonImageNew:latest '
             }
         }
 
