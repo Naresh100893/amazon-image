@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'docker rm -f $(docker ps -aq)'
+                //sh 'docker rm -f $(docker ps -aq)'
                 sh "docker build . -t naresh7724/amazon-image-new:latest"
             }
         }
