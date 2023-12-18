@@ -38,7 +38,7 @@ pipeline {
 
         stage("docker-images-cleanup") {
 	steps {
-		sh "sudo docker image prune -af"
+		sh "docker image prune -af"
 	}
 }
 
