@@ -28,12 +28,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            when {
-                expression {
-                    // Define your condition here
-                    return env.BRANCH_NAME == 'master'
-                }
-            }
+           
             steps {
                 echo 'Deploying...'
                 // Add deployment steps here
