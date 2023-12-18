@@ -17,8 +17,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'docker rm -f $(docker ps -aq)'
-                sh "docker build . -t naresh7724/amazon-image-new:latest"
+                sh 'aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 798498373443.dkr.ecr.eu-north-1.amazonaws.com'
+		sh 'docker build -t docker-image-repo .'  
+		sh 'docker tag docker-image-repo:latest 798498373443.dkr.ecr.eu-north-1.amazonaws.com/docker-image-repo:latest'    
+		sh 'docker push 798498373443.dkr.ecr.eu-north-1.amazonaws.com/docker-image-repo:latest'   
             }
         }
 
@@ -33,6 +35,9 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 // Add deployment steps here
+		    input {
+			    message "Do you want to proceed for deployment ?"
+		    }
 		    sh 'docker run -itd naresh7724/amazon-image-new:latest'
 		    
             }
