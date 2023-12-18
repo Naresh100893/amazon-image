@@ -25,7 +25,7 @@ pipeline {
             when {
                 expression {
                     // Define your condition here
-                    return env.BRANCH_NAME == 'origin/test'
+                    return env.BRANCH_NAME == "origin/main"
                 }
             }
             steps {
