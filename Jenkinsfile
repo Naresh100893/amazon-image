@@ -51,7 +51,7 @@ post {
 		
 	}
 	aborted {
-		sh 'docker ps'
+		sh 'dockers ps'
 	}
 }	
 }
