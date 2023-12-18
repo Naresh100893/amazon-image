@@ -47,6 +47,7 @@ pipeline {
 post {
 	always {
 		sh "docker images"
+		sh "docker container ls"
 	}
 }	
 }
