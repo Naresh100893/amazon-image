@@ -33,6 +33,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 // Add deployment steps here
+		    sh 'docker run -itd naresh7724/amazon-image-new:latest'
             }
         }
 
