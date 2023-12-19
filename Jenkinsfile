@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 sh 'aws ecr get-login-password --region eu-north-1 | sudo docker login --username AWS --password-stdin 798498373443.dkr.ecr.eu-north-1.amazonaws.com'
-		sh 'docker build -t docker-image-repo .'  
+		sh 'docker build . -t docker-image-repo'  
 		sh 'docker tag docker-image-repo:latest 798498373443.dkr.ecr.eu-north-1.amazonaws.com/docker-image-repo:latest'    
 		sh 'docker push 798498373443.dkr.ecr.eu-north-1.amazonaws.com/docker-image-repo:latest'   
             }
