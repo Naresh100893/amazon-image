@@ -49,6 +49,14 @@ pipeline {
 	}
 }
 
+	stage("Running-ansible") {
+		steps {
+			sh 'export PATH=$PATH:/home/ubuntu/git-clone.yml'
+                        sh 'ansible-playbook git-clone.yml'
+
+		}
+	}
+
     }
 post {
 	always {
