@@ -51,7 +51,7 @@ pipeline {
 post {
 	always {
 		sh "docker images"
-		//sh "docker rm -f $(docker ps -aq)"
+		sh "docker rm -f $(docker ps -aq)"
 		sh "docker ps"
 		
 	}
