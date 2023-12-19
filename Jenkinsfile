@@ -44,6 +44,7 @@ pipeline {
         stage("docker-images-cleanup") {
 	steps {
 		sh "docker image prune -af"
+		sh "docker rm -f $(docker ps -aq)"
 	}
 }
 
@@ -51,7 +52,7 @@ pipeline {
 post {
 	always {
 		sh "docker images"
-		sh "docker rm -f $(docker ps -aq)"
+		
 		sh "docker ps"
 		
 	}
