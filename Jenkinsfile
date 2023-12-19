@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 // Add deployment steps here
-		    sh 'docker stop $(docker ps -a -q) && docker container prune -a'
+		    sh 'docker rm -f $(docker ps -aq)'
 		
 		    sh 'docker run -itd amzn-linx-image:latest'
 		    
